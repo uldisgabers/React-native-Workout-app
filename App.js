@@ -1,79 +1,45 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  FlatList,
-  TouchableOpacity,
-  Alert,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
-import { useState } from "react";
-import Header from "./components/header";
-import TodoItem from "./components/todoItem";
-import AddTodo from "./components/addTodo";
+import { StyleSheet, Text, View } from "react-native";
+import Home from "./screens/home";
+import * as Font from "expo-font";
+import { useState, useEffect, useCallback } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
+
+SplashScreen.preventAutoHideAsync();
+
+const getFonts = () => {
+  return Font.loadAsync({
+    "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+  });
+};
 
 export default function App() {
-  const [todos, setTodos] = useState([
-    { text: "buy coffee", key: "1" },
-    { text: "create an app", key: "2" },
-    { text: "play on the switch", key: "3" },
-  ]);
+  const [fontsLoaded, fontError] = useFonts({
+    "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+  });
 
-  const pressHandler = (key) => {
-    setTodos((prevTodos) => {
-      return prevTodos.filter((todo) => todo.key !== key);
-    });
-  };
-
-  const submitHandler = (text) => {
-    if (text.length > 3) {
-      setTodos((prevTodos) => {
-        return [{ text: text, key: Math.random().toString() }, ...prevTodos];
-      });
-    } else {
-      Alert.alert("OOPS!!", "Todos must be over 3 characters long", [
-        { text: "Understood", onPress: () => console.log("alert closed") },
-      ]);
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
     }
-  };
+  }, [fontsLoaded, fontError]);
 
-  return (
-    <TouchableWithoutFeedback onPress={() => {
-      Keyboard.dismiss()
-      console.log('dismissed keyboard')
-    }}>
-      <View style={styles.container}>
-        <Header />
-        <View style={styles.content}>
-          <AddTodo submitHandler={submitHandler} />
-          <View style={styles.list}>
-            <FlatList
-              data={todos}
-              renderItem={({ item }) => (
-                <TodoItem item={item} pressHandler={pressHandler} />
-              )}
-            />
-          </View>
-        </View>
+  if (!fontsLoaded && !fontError) {
+    return <Text>Loading...</Text>;
+  }
 
-        <StatusBar style="auto" />
-      </View>
-    </TouchableWithoutFeedback>
-  );
+  return <Home onLayout={onLayoutRootView} />;
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    padding: 24,
   },
-  content: {
-    padding: 40,
-  },
-  list: {
-    marginTop: 20,
+  text: {
+    fontFamily: "roboto-regular",
+    fontSize: 18,
   },
 });
