@@ -1,19 +1,19 @@
+import "react-native-gesture-handler";
+import * as React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Home from "./screens/home";
-import * as Font from "expo-font";
-import { useState, useEffect, useCallback } from "react";
+import About from "./screens/home";
+import ReviewDetails from "./screens/reviewDetails";
+import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
 
 SplashScreen.preventAutoHideAsync();
 
-const getFonts = () => {
-  return Font.loadAsync({
-    "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
-    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
-  });
-};
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -31,7 +31,17 @@ export default function App() {
     return <Text>Loading...</Text>;
   }
 
-  return <Home onLayout={onLayoutRootView} />;
+  return (
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      {/* <Home /> */}
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Home">
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="About" component={About} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
