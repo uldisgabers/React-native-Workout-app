@@ -22,7 +22,7 @@ const data = [
   { label: "Triceps", value: "triceps" },
 ];
 
-const DropdownExerciseName = ({ exerciseData }) => {
+const DropdownExerciseName = ({ exerciseData, addExerciseName }) => {
   const [value, setValue] = useState(null);
 
   const dropdownData = [];
@@ -31,7 +31,7 @@ const DropdownExerciseName = ({ exerciseData }) => {
     dropdownData.push({ label: item.name, value: item.name });
   });
 
-  console.log(dropdownData);
+  // console.log(dropdownData);
 
   return (
     <Dropdown
@@ -50,7 +50,7 @@ const DropdownExerciseName = ({ exerciseData }) => {
       value={value}
       onChange={(item) => {
         setValue(item.value);
-        // addMuscleGroup(item.value);
+        addExerciseName(item.value);
       }}
       renderLeftIcon={() => (
         <MaterialCommunityIcons name="arm-flex" size={20} color="black" />
@@ -63,6 +63,7 @@ export default DropdownExerciseName;
 
 const styles = StyleSheet.create({
   dropdown: {
+    width: "100%",
     margin: 16,
     height: 50,
     borderBottomColor: "gray",

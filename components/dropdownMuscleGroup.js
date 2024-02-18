@@ -55,6 +55,7 @@ export default DropdownMuscleGroup;
 
 const styles = StyleSheet.create({
   dropdown: {
+    width: "100%",
     margin: 16,
     height: 50,
     borderBottomColor: "gray",
