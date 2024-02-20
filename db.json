@@ -5,6 +5,107 @@
       "workoutName": "test name",
       "details": [],
       "createdAt": "asdasd"
+    },
+    {
+      "id": "4dea5a86-2b5a-475c-8c58-d1f778b1a11d",
+      "workoutName": "test name",
+      "details": [
+        {
+          "id": "799254f7-be5c-4313-aa9e-e83db27d9f70",
+          "muscleGroup": "adductors",
+          "name": "Thigh adductor",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-20T22:21:25.399Z"
+    },
+    {
+      "id": "0edddfcd-78c2-4981-8316-4f0ce7a6a280",
+      "workoutName": "test name",
+      "details": [
+        {
+          "id": "799254f7-be5c-4313-aa9e-e83db27d9f70",
+          "muscleGroup": "adductors",
+          "name": "Thigh adductor",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "8962a38b-1ce4-4824-a7e9-743e65ead372",
+          "muscleGroup": "abdominals",
+          "name": "Bottoms Up",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "d8a11989-b7b8-491a-8ed0-f6f2f7a16e4e",
+          "muscleGroup": "biceps",
+          "name": "Hammer Curls",
+          "sets": 4,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "107f29c9-abe1-4678-af37-922b4979807c",
+          "muscleGroup": "glutes",
+          "name": "Barbell Hip Thrust",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-20T22:22:09.299Z"
+    },
+    {
+      "id": "0d84abc1-b584-4a5e-a3ed-b45bc2d310ad",
+      "workoutName": "test name",
+      "details": [
+        {
+          "id": "799254f7-be5c-4313-aa9e-e83db27d9f70",
+          "muscleGroup": "adductors",
+          "name": "Thigh adductor",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "8962a38b-1ce4-4824-a7e9-743e65ead372",
+          "muscleGroup": "abdominals",
+          "name": "Bottoms Up",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "d8a11989-b7b8-491a-8ed0-f6f2f7a16e4e",
+          "muscleGroup": "biceps",
+          "name": "Hammer Curls",
+          "sets": 4,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "107f29c9-abe1-4678-af37-922b4979807c",
+          "muscleGroup": "glutes",
+          "name": "Barbell Hip Thrust",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "f04f51d5-6302-42e2-889c-f09a7e2fd91a",
+          "muscleGroup": "abductors",
+          "name": "IT Band and Glute Stretch",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-20T22:45:12.916Z"
     }
   ]
 }

@@ -106,26 +106,20 @@ const NewWorkoutScreen = () => {
 
   // POST workout to db
 
-  const saveWorkoutToDB = (data) => {
-    // axios
-    //   .post("http://localhost:3000/workouts", {
-    //     id: uuidv4(),
-    //     workoutName: "test name",
-    //     details: data,
-    //     createdAt: new Date(),
-    //   })
-    //   .then((res) => {
-    //     console.log("Data posted succesfully");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
-    axios.get("http://localhost:3000/workouts").then(({ data }) => {
-      console.log(data);
-    }).catch((error) => {
-      console.log(error)
-    });
+  const saveWorkoutToDB = async (data) => {
+    axios
+      .post("http://10.0.2.2:3000/workouts/", {
+        id: uuidv4(),
+        workoutName: "test name",
+        details: data,
+        createdAt: new Date(),
+      })
+      .then((res) => {
+        console.log("Data posted succesfully", res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -213,17 +207,9 @@ const NewWorkoutScreen = () => {
         />
       </View>
 
-      {/* {workoutTree.length !== 0 && (
-        <View style={styles.exerciseBlock}>
-          <Text>{workoutTree[0].name}</Text>
-          <Text>Sets: {workoutTree[0].sets}</Text>
-        </View>
-      )} */}
-
       <TouchableOpacity
         style={styles.saveBtn}
-        // onPress={() => saveWorkoutToDB(workoutTree)}
-        onPress={() => saveWorkoutToDB()}
+        onPress={() => saveWorkoutToDB(workoutTree)}
       >
         <Text style={{ color: "white", fontWeight: "bold" }}>SAVE</Text>
       </TouchableOpacity>
