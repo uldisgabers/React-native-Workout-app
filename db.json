@@ -1,5 +1,10 @@
 {
   "workouts": [
-    
+    {
+      "id": "a35d4f5e-36af-4b3f-a079-b75509af42f4",
+      "workoutName": "test name",
+      "details": [],
+      "createdAt": "asdasd"
+    }
   ]
 }

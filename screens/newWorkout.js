@@ -9,6 +9,7 @@ import {
   FlatList,
 } from "react-native";
 const { v4: uuidv4 } = require("uuid");
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { getExerciseDataByMuscle } from "../utils/fetchData";
@@ -101,13 +102,31 @@ const NewWorkoutScreen = () => {
     });
   };
 
-  console.log(workoutTree);
+  // console.log(workoutTree);
 
   // POST workout to db
 
-  const saveWorkoutToDB = () => {
+  const saveWorkoutToDB = (data) => {
+    // axios
+    //   .post("http://localhost:3000/workouts", {
+    //     id: uuidv4(),
+    //     workoutName: "test name",
+    //     details: data,
+    //     createdAt: new Date(),
+    //   })
+    //   .then((res) => {
+    //     console.log("Data posted succesfully");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
 
-  }
+    axios.get("http://localhost:3000/workouts").then(({ data }) => {
+      console.log(data);
+    }).catch((error) => {
+      console.log(error)
+    });
+  };
 
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
@@ -201,7 +220,11 @@ const NewWorkoutScreen = () => {
         </View>
       )} */}
 
-      <TouchableOpacity style={styles.saveBtn} onPress={saveWorkoutToDB}>
+      <TouchableOpacity
+        style={styles.saveBtn}
+        // onPress={() => saveWorkoutToDB(workoutTree)}
+        onPress={() => saveWorkoutToDB()}
+      >
         <Text style={{ color: "white", fontWeight: "bold" }}>SAVE</Text>
       </TouchableOpacity>
     </View>
