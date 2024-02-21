@@ -6,6 +6,7 @@ import {
   Button,
   TouchableOpacity,
   Image,
+  TextInput,
   FlatList,
 } from "react-native";
 const { v4: uuidv4 } = require("uuid");
@@ -104,14 +105,20 @@ const NewWorkoutScreen = () => {
 
   // console.log(workoutTree);
 
+  const [newWorkoutName, setNewWorkoutName] = useState("");
+
   // POST workout to db
 
-  const saveWorkoutToDB = async (data) => {
+  const saveWorkoutToDB = async (workoutData, workoutName) => {
     axios
       .post("http://10.0.2.2:3000/workouts/", {
+        // ...newWorkout,
+        // id: uuidv4(),
+        // createdAt: new Date(),
+        // details: workoutData,
         id: uuidv4(),
-        workoutName: "test name",
-        details: data,
+        workoutName: workoutName,
+        details: workoutData,
         createdAt: new Date(),
       })
       .then((res) => {
@@ -121,6 +128,10 @@ const NewWorkoutScreen = () => {
         console.log(error);
       });
   };
+
+  // save modal
+
+  const [saveModal, setSaveModal] = useState(false);
 
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
@@ -209,10 +220,56 @@ const NewWorkoutScreen = () => {
 
       <TouchableOpacity
         style={styles.saveBtn}
-        onPress={() => saveWorkoutToDB(workoutTree)}
+        onPress={
+          () => setSaveModal(true)
+          // saveWorkoutToDB(workoutTree)
+        }
       >
         <Text style={{ color: "white", fontWeight: "bold" }}>SAVE</Text>
       </TouchableOpacity>
+
+      <Modal
+        animationType={"fade"}
+        transparent
+        visible={saveModal}
+        onRequestClose={() => setSaveModal(false)}
+      >
+        <View style={styles.saveModalContainer}>
+          <View style={styles.saveModal}>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setSaveModal(false)}
+            >
+              <MaterialCommunityIcons name="close" size={24} color="black" />
+            </TouchableOpacity>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter the workout name..."
+              value={newWorkoutName}
+              onChangeText={(text) => setNewWorkoutName(text)}
+            />
+            <View style={{ flexDirection: "row", gap: 20 }}>
+              <TouchableOpacity
+                onPress={() => setSaveModal(false)}
+                style={styles.cancelBtn}
+              >
+                <Text style={styles.buttonText}>CANCEL</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.saveModalBtn}
+                onPress={() => {
+                  saveWorkoutToDB(workoutTree, newWorkoutName);
+                  setSaveModal(false);
+                  setNewWorkoutName("");
+                  setWorkoutTree([]);
+                }}
+              >
+                <Text style={styles.buttonText}>SAVE</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -268,7 +325,45 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   saveBtn: {
-    backgroundColor: "#ffa807",
+    backgroundColor: "#64ad6a",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 20,
+    marginVertical: 5,
+  },
+  saveModalContainer: {
+    backgroundColor: "rgba(0,0,0,0.5)'",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  saveModal: {
+    backgroundColor: "white",
+    borderColor: "black",
+    borderWidth: 3,
+    borderRadius: 15,
+    padding: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 10,
+    width: 320
+  },
+  textInput: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 4,
+  },
+  cancelBtn: {
+    backgroundColor: "#d4723d",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 20,
+    marginVertical: 5,
+  },
+  saveModalBtn: {
+    backgroundColor: "#64ad6a",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 20,

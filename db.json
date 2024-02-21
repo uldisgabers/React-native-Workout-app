@@ -106,6 +106,87 @@
         }
       ],
       "createdAt": "2024-02-20T22:45:12.916Z"
+    },
+    {
+      "id": "e2515eac-0693-4f4f-9c60-a59760617182",
+      "workoutName": "test name",
+      "details": [
+        {
+          "id": "bd33d6c7-6bab-444b-a5f9-a23bc1fe55ee",
+          "muscleGroup": "abdominals",
+          "name": "Elbow plank",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-21T12:19:54.202Z"
+    },
+    {
+      "id": "68cee838-1062-42a8-8c67-b9c2ed2d1455",
+      "workoutName": "asdasdasd",
+      "details": [],
+      "createdAt": "2024-02-21T13:56:10.585Z"
+    },
+    {
+      "id": "a66077bb-d2df-43d9-97bb-83129f5339f2",
+      "workoutName": "Pull day workout",
+      "details": [
+        {
+          "id": "5db6cc14-f6b6-439b-be5c-f4a7fad77d95",
+          "muscleGroup": "biceps",
+          "name": "Hammer Curls",
+          "sets": 3,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-21T13:58:56.535Z"
+    },
+    {
+      "id": "b1bd9ac4-6504-4a8d-bcc3-deba1fd944cb",
+      "workoutName": "12345",
+      "details": [
+        {
+          "id": "665cd468-3032-464d-aefd-24b73d1ddeb2",
+          "muscleGroup": "abductors",
+          "name": "Hip Circles (Prone)",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-21T14:01:57.001Z"
+    },
+    {
+      "id": "83a6e8e8-b284-46be-bccf-f1f534730397",
+      "workoutName": "12345",
+      "details": [
+        {
+          "id": "665cd468-3032-464d-aefd-24b73d1ddeb2",
+          "muscleGroup": "abductors",
+          "name": "Hip Circles (Prone)",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-21T14:06:02.018Z"
+    },
+    {
+      "id": "3ea46796-0d70-4162-bb75-2c016e6f28fc",
+      "workoutName": "Scary",
+      "details": [
+        {
+          "id": "8a4af70f-00f1-486b-bdf8-11c2600ede6d",
+          "muscleGroup": "abdominals",
+          "name": "Landmine twist",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-21T14:59:04.603Z"
     }
   ]
 }
