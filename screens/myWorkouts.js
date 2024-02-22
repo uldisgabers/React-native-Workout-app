@@ -29,12 +29,13 @@ const MyWorkoutsScreen = () => {
   }, []);
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={workoutData}
+        numColumns={2}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View>
+          <View style={styles.itemContainer}>
             <Text>{item.workoutName}</Text>
           </View>
         )}
@@ -43,6 +44,13 @@ const MyWorkoutsScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  itemContainer: {
+    flex: 1/2,
+    backgroundColor: "#64ad6a",
+    margin: 5,
+    padding: 15,
+  },
+});
 
 export default MyWorkoutsScreen;

@@ -1,11 +1,12 @@
+import { API_KEY } from "@env";
+
 export const getExerciseDataByMuscle = (muscle) => {
   const apiUrl = `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`;
 
   return fetch(apiUrl, {
     method: "GET",
     headers: {
-      // "X-Api-Key": API_NINJAS_EXERCISES_API_KEY,
-      "X-Api-Key": "+vOCJAjfI6mytRtG4zTXUQ==Sc39tfxDKCvfUYSS",
+      "X-Api-Key": API_KEY,
       "Content-Type": "application/json",
     },
   })

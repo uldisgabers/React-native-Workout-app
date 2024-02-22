@@ -187,6 +187,36 @@
         }
       ],
       "createdAt": "2024-02-21T14:59:04.603Z"
+    },
+    {
+      "id": "3da5fde2-cdc7-43cb-a53e-c45c1c1f63b0",
+      "workoutName": "what is this",
+      "details": [
+        {
+          "id": "6f1fe25e-f493-4baf-a47f-b41e87d01d8c",
+          "muscleGroup": "abdominals",
+          "name": "Landmine twist",
+          "sets": 2,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-21T21:47:51.595Z"
+    },
+    {
+      "id": "dea3e33f-94de-411f-ae20-b7c9be445aa9",
+      "workoutName": "qwerty",
+      "details": [
+        {
+          "id": "d0a2f312-4aa7-4b7a-85b8-a046f9e2e520",
+          "muscleGroup": "abdominals",
+          "name": "Elbow plank",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "createdAt": "2024-02-22T10:43:01.684Z"
     }
   ]
 }
