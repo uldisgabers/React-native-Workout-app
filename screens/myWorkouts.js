@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#64ad6a",
     margin: 5,
     padding: 15,
+    borderRadius: 6,
   },
 });
 
