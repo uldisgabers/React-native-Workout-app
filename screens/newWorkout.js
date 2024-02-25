@@ -19,6 +19,7 @@ import DropdownExerciseName from "../components/dropdownExerciseName";
 import SetsSelector from "../components/setsSelector";
 import SetsLengthSelector from "../components/setsLengthSelector";
 import SetsRestSelector from "../components/setsRestSlector";
+import WorkoutRestSelector from "../components/workoutRestSelector";
 
 // const workoutTree = [];
 
@@ -107,9 +108,17 @@ const NewWorkoutScreen = () => {
 
   const [newWorkoutName, setNewWorkoutName] = useState("");
 
+  // add whole Workout rest length between exercises to the data object
+
+  const [restTimeBetweenExercises, setRestTimeBetweenExercises] = useState(40);
+
+  const addRestBetweenExercisesLength = (value) => {
+    setRestTimeBetweenExercises(value);
+  };
+
   // POST workout to db
 
-  const saveWorkoutToDB = async (workoutData, workoutName) => {
+  const saveWorkoutToDB = async (workoutData, workoutName, restTime) => {
     axios
       .post("http://10.0.2.2:3000/workouts/", {
         // ...newWorkout,
@@ -119,6 +128,7 @@ const NewWorkoutScreen = () => {
         id: uuidv4(),
         workoutName: workoutName,
         details: workoutData,
+        restBetweenExercises: restTime,
         createdAt: new Date(),
       })
       .then((res) => {
@@ -132,6 +142,8 @@ const NewWorkoutScreen = () => {
   // save modal
 
   const [saveModal, setSaveModal] = useState(false);
+
+  
 
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
@@ -248,6 +260,11 @@ const NewWorkoutScreen = () => {
               value={newWorkoutName}
               onChangeText={(text) => setNewWorkoutName(text)}
             />
+
+            <WorkoutRestSelector
+              addRestBetweenExercisesLength={addRestBetweenExercisesLength}
+            />
+
             <View style={{ flexDirection: "row", gap: 20 }}>
               <TouchableOpacity
                 onPress={() => setSaveModal(false)}
@@ -258,7 +275,7 @@ const NewWorkoutScreen = () => {
               <TouchableOpacity
                 style={styles.saveModalBtn}
                 onPress={() => {
-                  saveWorkoutToDB(workoutTree, newWorkoutName);
+                  saveWorkoutToDB(workoutTree, newWorkoutName, restTimeBetweenExercises);
                   setSaveModal(false);
                   setNewWorkoutName("");
                   setWorkoutTree([]);
@@ -346,7 +363,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 10,
-    width: 320
+    width: 320,
   },
   textInput: {
     height: 40,

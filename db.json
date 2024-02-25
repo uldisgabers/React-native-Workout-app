@@ -1,12 +1,6 @@
 {
   "workouts": [
     {
-      "id": "a35d4f5e-36af-4b3f-a079-b75509af42f4",
-      "workoutName": "test name",
-      "details": [],
-      "createdAt": "asdasd"
-    },
-    {
       "id": "4dea5a86-2b5a-475c-8c58-d1f778b1a11d",
       "workoutName": "test name",
       "details": [
@@ -19,6 +13,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-20T22:21:25.399Z"
     },
     {
@@ -58,6 +53,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-20T22:22:09.299Z"
     },
     {
@@ -105,6 +101,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-20T22:45:12.916Z"
     },
     {
@@ -120,6 +117,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-21T12:19:54.202Z"
     },
     {
@@ -141,6 +139,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-21T13:58:56.535Z"
     },
     {
@@ -156,6 +155,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-21T14:01:57.001Z"
     },
     {
@@ -171,6 +171,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-21T14:06:02.018Z"
     },
     {
@@ -186,6 +187,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-21T14:59:04.603Z"
     },
     {
@@ -201,6 +203,7 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-21T21:47:51.595Z"
     },
     {
@@ -216,7 +219,32 @@
           "restLength": 20
         }
       ],
+      "restBetweenExercises": 40,
       "createdAt": "2024-02-22T10:43:01.684Z"
+    },
+    {
+      "id": "bd113022-7771-4b9d-9d39-51d98cd820ac",
+      "workoutName": "Nice bro",
+      "details": [
+        {
+          "id": "2cc109c8-bc4a-4825-96cd-7c4e340a8e5c",
+          "muscleGroup": "abdominals",
+          "name": "Landmine twist",
+          "sets": 3,
+          "oneSetLength": 40,
+          "restLength": 20
+        },
+        {
+          "id": "acb53b56-aafc-408c-9d14-069ad00b3061",
+          "muscleGroup": "biceps",
+          "name": "Hammer Curls",
+          "sets": 1,
+          "oneSetLength": 40,
+          "restLength": 20
+        }
+      ],
+      "restBetweenExercises": 40,
+      "createdAt": "2024-02-24T22:30:41.053Z"
     }
   ]
 }
