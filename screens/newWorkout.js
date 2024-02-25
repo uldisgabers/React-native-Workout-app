@@ -119,15 +119,29 @@ const NewWorkoutScreen = () => {
   // POST workout to db
 
   const saveWorkoutToDB = async (workoutData, workoutName, restTime) => {
+    // axios
+    //   .post("http://10.0.2.2:3000/workouts/", {
+    //     // ...newWorkout,
+    //     // id: uuidv4(),
+    //     // createdAt: new Date(),
+    //     // details: workoutData,
+    //     id: uuidv4(),
+    //     workoutName: workoutName,
+    //     details: workoutData,
+    //     restBetweenExercises: restTime,
+    //     createdAt: new Date(),
+    //   })
+    //   .then((res) => {
+    //     console.log("Data posted succesfully", res);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
     axios
-      .post("http://10.0.2.2:3000/workouts/", {
-        // ...newWorkout,
-        // id: uuidv4(),
-        // createdAt: new Date(),
-        // details: workoutData,
+      .post("http://172.27.208.1:3001/workouts/", {
         id: uuidv4(),
         workoutName: workoutName,
-        details: workoutData,
         restBetweenExercises: restTime,
         createdAt: new Date(),
       })
@@ -137,13 +151,27 @@ const NewWorkoutScreen = () => {
       .catch((error) => {
         console.log(error);
       });
+
+      // axios
+      // .post("http://172.27.208.1:3001/workout_details", {
+      //   id: uuidv4(),
+      //   workoutName: workoutName,
+      //   // details: workoutData,
+      //   restBetweenExercises: restTime,
+      //   createdAt: new Date(),
+      // })
+      // .then((res) => {
+      //   console.log("Data posted succesfully", res);
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
+
   };
 
   // save modal
 
   const [saveModal, setSaveModal] = useState(false);
-
-  
 
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
@@ -275,7 +303,11 @@ const NewWorkoutScreen = () => {
               <TouchableOpacity
                 style={styles.saveModalBtn}
                 onPress={() => {
-                  saveWorkoutToDB(workoutTree, newWorkoutName, restTimeBetweenExercises);
+                  saveWorkoutToDB(
+                    workoutTree,
+                    newWorkoutName,
+                    restTimeBetweenExercises
+                  );
                   setSaveModal(false);
                   setNewWorkoutName("");
                   setWorkoutTree([]);
