@@ -138,12 +138,21 @@ const NewWorkoutScreen = () => {
     //     console.log(error);
     //   });
 
+    let workoutSendData = {
+      id: uuidv4(),
+      workoutName: workoutName,
+      restBetweenExercises: restTime,
+      createdAt: "",
+    };
+
     axios
       .post("http://172.27.208.1:3001/workouts/", {
-        id: uuidv4(),
-        workoutName: workoutName,
-        restBetweenExercises: restTime,
+        ...workoutSendData,
         createdAt: new Date(),
+        // id: uuidv4(),
+        // workoutName: workoutName,
+        // restBetweenExercises: restTime,
+        // createdAt: new Date(),
       })
       .then((res) => {
         console.log("Data posted succesfully", res);
@@ -152,21 +161,21 @@ const NewWorkoutScreen = () => {
         console.log(error);
       });
 
-      // axios
-      // .post("http://172.27.208.1:3001/workout_details", {
-      //   id: uuidv4(),
-      //   workoutName: workoutName,
-      //   // details: workoutData,
-      //   restBetweenExercises: restTime,
-      //   createdAt: new Date(),
-      // })
-      // .then((res) => {
-      //   console.log("Data posted succesfully", res);
-      // })
-      // .catch((error) => {
-      //   console.log(error);
-      // });
+      
 
+    workoutData.map((item) => {
+      axios
+        .post("http://172.27.208.1:3001/workout_details", {
+          ...item,
+          workoutId: workoutSendData.id,
+        })
+        .then((res) => {
+          console.log("Data posted succesfully", res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   };
 
   // save modal
