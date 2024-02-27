@@ -191,7 +191,6 @@ const NewWorkoutScreen = () => {
       >
         <Text style={styles.buttonText}>ADD EXERCISE</Text>
       </TouchableOpacity>
-      {/* <Button title="Add exercise" onPress={() => setIsModalVisible(true)} /> */}
       <Modal
         visible={isModalVisible}
         animationType="slide"
