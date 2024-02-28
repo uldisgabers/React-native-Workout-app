@@ -1,6 +1,7 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useFocusEffect } from "@react-navigation/native";
 
 const MyWorkoutsScreen = () => {
   const [isLoading, setLoading] = useState(true);
@@ -45,9 +46,13 @@ const MyWorkoutsScreen = () => {
     }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   getWorkoutData();
+  // }, []);
+
+  useFocusEffect(() => {
     getWorkoutData();
-  }, []);
+  })
 
   return (
     <View style={{ flex: 1 }}>
