@@ -119,40 +119,17 @@ const NewWorkoutScreen = () => {
   // POST workout to db
 
   const saveWorkoutToDB = async (workoutData, workoutName, restTime) => {
-    // axios
-    //   .post("http://10.0.2.2:3000/workouts/", {
-    //     // ...newWorkout,
-    //     // id: uuidv4(),
-    //     // createdAt: new Date(),
-    //     // details: workoutData,
-    //     id: uuidv4(),
-    //     workoutName: workoutName,
-    //     details: workoutData,
-    //     restBetweenExercises: restTime,
-    //     createdAt: new Date(),
-    //   })
-    //   .then((res) => {
-    //     console.log("Data posted succesfully", res);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
-    let workoutSendData = {
-      id: uuidv4(),
-      workoutName: workoutName,
-      restBetweenExercises: restTime,
-      createdAt: "",
-    };
-
     axios
       .post("http://172.27.208.1:3001/workouts/", {
-        ...workoutSendData,
-        createdAt: new Date(),
+        // ...newWorkout,
         // id: uuidv4(),
-        // workoutName: workoutName,
-        // restBetweenExercises: restTime,
         // createdAt: new Date(),
+        // details: workoutData,
+        id: uuidv4(),
+        workoutName: workoutName,
+        details: workoutData,
+        restBetweenExercises: restTime,
+        createdAt: new Date(),
       })
       .then((res) => {
         console.log("Data posted succesfully", res);
@@ -161,21 +138,44 @@ const NewWorkoutScreen = () => {
         console.log(error);
       });
 
-      
+    // option to make post req to each individual ------------------
 
-    workoutData.map((item) => {
-      axios
-        .post("http://172.27.208.1:3001/workout_details", {
-          ...item,
-          workoutId: workoutSendData.id,
-        })
-        .then((res) => {
-          console.log("Data posted succesfully", res);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+    // let workoutSendData = {
+    //   id: uuidv4(),
+    //   workoutName: workoutName,
+    //   restBetweenExercises: restTime,
+    //   createdAt: "",
+    // };
+
+    // axios
+    //   .post("http://172.27.208.1:3001/workouts/", {
+    //     ...workoutSendData,
+    //     createdAt: new Date(),
+    //     // id: uuidv4(),
+    //     // workoutName: workoutName,
+    //     // restBetweenExercises: restTime,
+    //     // createdAt: new Date(),
+    //   })
+    //   .then((res) => {
+    //     console.log("Data posted succesfully", res);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    // workoutData.map((item) => {
+    //   axios
+    //     .post("http://172.27.208.1:3001/workout_details", {
+    //       ...item,
+    //       workoutId: workoutSendData.id,
+    //     })
+    //     .then((res) => {
+    //       console.log("Data posted succesfully", res);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // });
   };
 
   // save modal
