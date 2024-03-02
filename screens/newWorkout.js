@@ -163,19 +163,6 @@ const NewWorkoutScreen = () => {
     //     console.log(error);
     //   });
 
-    // workoutData.map((item) => {
-    //   axios
-    //     .post("http://172.27.208.1:3001/workout_details", {
-    //       ...item,
-    //       workoutId: workoutSendData.id,
-    //     })
-    //     .then((res) => {
-    //       console.log("Data posted succesfully", res);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // });
   };
 
   // save modal
@@ -233,8 +220,6 @@ const NewWorkoutScreen = () => {
           )}
         </View>
       </Modal>
-
-      {/* <Text>{JSON.stringify(newExercise)}</Text> */}
 
       <View style={styles.flatlist}>
         <FlatList
