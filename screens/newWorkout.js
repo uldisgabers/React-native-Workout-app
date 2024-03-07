@@ -121,10 +121,6 @@ const NewWorkoutScreen = () => {
   const saveWorkoutToDB = async (workoutData, workoutName, restTime) => {
     axios
       .post("http://172.27.208.1:3001/workouts/", {
-        // ...newWorkout,
-        // id: uuidv4(),
-        // createdAt: new Date(),
-        // details: workoutData,
         id: uuidv4(),
         workoutName: workoutName,
         details: workoutData,
@@ -151,10 +147,6 @@ const NewWorkoutScreen = () => {
     //   .post("http://172.27.208.1:3001/workouts/", {
     //     ...workoutSendData,
     //     createdAt: new Date(),
-    //     // id: uuidv4(),
-    //     // workoutName: workoutName,
-    //     // restBetweenExercises: restTime,
-    //     // createdAt: new Date(),
     //   })
     //   .then((res) => {
     //     console.log("Data posted succesfully", res);
