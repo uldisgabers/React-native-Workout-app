@@ -163,7 +163,6 @@ const NewWorkoutScreen = () => {
 
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
-      {/* <Text>New Workout Screen</Text> */}
       <TouchableOpacity
         style={styles.addExerciseBtn}
         onPress={() => setIsModalVisible(true)}
